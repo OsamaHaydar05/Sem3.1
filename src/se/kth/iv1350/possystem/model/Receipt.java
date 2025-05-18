@@ -1,8 +1,8 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.HashMap;
-import java.time.format.DateTimeFormatter;
 
 public class Receipt {
     private final HashMap<String, SoldItem> soldItems;
@@ -21,20 +21,25 @@ public class Receipt {
         this.timeOfSale = LocalDateTime.now();
     }
 
+ 
+    public Collection<SoldItem> getSoldItems() {   //View använder denna
+        return soldItems.values();
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public double getTotalVAT() {
+        return totalVAT;
+    }
+
     public double getChange() {
         return change;
     }
 
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("- - - - - - - - - - - - - - - - - - Begin receipt - - - - - - - - - - - - - - - - - - -\n");
-        sb.append("Time of Sale: ").append(timeOfSale.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))).append("\n\n");
-        for (SoldItem item : soldItems.values()) {
-            sb.append(item.toString()).append("\n");
-        }
-        sb.append(String.format("\nTotal: %.2f SEK\nVAT: %.2f SEK\n", totalPrice, totalVAT));
-        sb.append(String.format("Cash: %.2f SEK\nChange: %.2f SEK\n", amountPaid, change));
-        sb.append("- - - - - - - - - - - - - - - - - - End receipt - - - - - - - - - - - - - - - - - - - -\n");
-        return sb.toString();
+    public LocalDateTime getTimeOfSale() {
+        return timeOfSale;
     }
-} 
+
+}
