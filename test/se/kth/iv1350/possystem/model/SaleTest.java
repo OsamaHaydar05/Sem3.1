@@ -2,7 +2,6 @@ package model;
 
 import integration.ItemDTO;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SaleTest {
@@ -13,21 +12,17 @@ public class SaleTest {
         ItemDTO item = new ItemDTO("abc123", "BigWheel Oatmeal", 29.90, 0.06, "500g");
         sale.addItem(item);
 
-        double expectedTotal = 29.90;
-        double actualTotal = sale.getRunningTotal();
-
-        assertEquals(expectedTotal, actualTotal, 0.01, "The total should be equal to the item price");
+        assertEquals(29.90, sale.getRunningTotal(), 0.01);
     }
 
     @Test
-    public void testAddSameItemTwice() {
+    public void testAddSameItemTwiceIncreasesQuantity() {
         Sale sale = new Sale();
         ItemDTO item = new ItemDTO("abc123", "BigWheel Oatmeal", 29.90, 0.06, "500g");
         sale.addItem(item);
         sale.addItem(item);
 
-        double expected = 2 * 29.90;
-        assertEquals(expected, sale.getRunningTotal(), 0.01, "Total should double when same item is added twice");
+        assertEquals(59.80, sale.getRunningTotal(), 0.01);
     }
 
     @Test
@@ -36,7 +31,6 @@ public class SaleTest {
         ItemDTO item = new ItemDTO("def456", "YouGoGo Blueberry", 14.90, 0.06, "240g");
         sale.addItem(item, 3);
 
-        double expected = 3 * 14.90;
-        assertEquals(expected, sale.getRunningTotal(), 0.01, "Total should match the quantity");
+        assertEquals(3 * 14.90, sale.getRunningTotal(), 0.01);
     }
 }
