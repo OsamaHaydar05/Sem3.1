@@ -3,7 +3,7 @@ package model;
 import integration.ItemDTO;
 
 public class SoldItem {
-    public final ItemDTO item;
+    private final ItemDTO item;
     private int quantity;
 
     public SoldItem(ItemDTO item, int quantity) {
@@ -18,6 +18,10 @@ public class SoldItem {
     public int getQuantity() {
         return quantity;
     }
+
+    public ItemDTO getItem() {
+        return item;
+    }    
 
     public double getTotalPrice() {
         return item.price * quantity;
