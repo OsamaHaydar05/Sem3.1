@@ -5,7 +5,13 @@ import integration.ItemDTO;
 import model.Receipt;
 
 public class View {
+    private Controller controller;
+
     public View(Controller controller) {
+        this.controller = controller;
+    }
+
+    public void run() {
         controller.startNewSale();
 
         System.out.println("Add 1 item with item id abc123:");
@@ -41,4 +47,4 @@ public class View {
         System.out.println("\nTotal cost (incl VAT): " + String.format("%.2f", controller.getRunningTotal()) + " SEK");
         System.out.println("Total VAT: " + String.format("%.2f", controller.getTotalVAT()) + " SEK");
     }
-} 
+}
