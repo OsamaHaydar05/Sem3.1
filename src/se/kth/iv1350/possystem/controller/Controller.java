@@ -17,9 +17,17 @@ public class Controller {
         currentSale = new Sale();
     }
 
-    public ItemDTO registerItem(String itemId) {
+   
+    public ItemDTO registerItem(String itemId) {     // Registrera en vara 
         ItemDTO item = inventory.getItem(itemId);
-        currentSale.addItem(item);
+        currentSale.addItem(item); // registrerar 1 st
+        return item;
+    }
+
+   
+    public ItemDTO registerItem(String itemId, int quantity) {  // Registrera flera av samma vara
+        ItemDTO item = inventory.getItem(itemId);
+        currentSale.addItem(item, quantity); // registrerar flera
         return item;
     }
 
@@ -36,8 +44,6 @@ public class Controller {
     }
 
     public Sale getCurrentSale() {
-    return this.currentSale;
+        return this.currentSale;
+    }
 }
-
-
-} 
