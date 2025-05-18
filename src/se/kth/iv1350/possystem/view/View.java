@@ -33,7 +33,7 @@ public class View {
         printRunningTotal();
 
         System.out.println("\nEnd sale:");
-        Receipt receipt = controller.endSale(200.0);
+        Receipt receipt = controller.endSale(200.0); // Tex betalar 200kr
 
         
         System.out.println("\n🧾 Receipt:");
