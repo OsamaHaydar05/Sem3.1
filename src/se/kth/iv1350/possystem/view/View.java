@@ -37,7 +37,7 @@ public class View {
 
         
         System.out.println("\n🧾 Receipt:");
-        for (SoldItem soldItem : receipt.getSoldItems()) {  //kriv ut varje kvittorad med korrekt format
+        for (SoldItem soldItem : receipt.getSoldItems()) {  //kriv ut varje kvitto rad med korrekt format
             System.out.println(
                 soldItem.getItem().name + "  " +
                 soldItem.getQuantity() + " x " + String.format("%.2f", soldItem.getItem().price) + " SEK" +
