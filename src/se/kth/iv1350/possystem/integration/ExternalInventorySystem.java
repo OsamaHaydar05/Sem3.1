@@ -13,6 +13,11 @@ public class ExternalInventorySystem {
     }
 
     public ItemDTO getItem(String itemId) {
-        return items.get(itemId);
+    ItemDTO item = items.get(itemId);
+    if (item == null) {
+        throw new ItemNotFoundException(itemId);
     }
+    return item;
+}
+
 } 
