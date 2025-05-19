@@ -4,6 +4,8 @@ import integration.ExternalInventorySystem;
 import integration.ItemDTO;
 import model.Sale;
 import model.Receipt;
+import integration.ItemNotFoundException;
+import integration.InventoryDatabaseException;
 
 public class Controller {
     private Sale currentSale;
@@ -17,11 +19,12 @@ public class Controller {
         currentSale = new Sale();
     }
 
-    public ItemDTO registerItem(String itemId) {
-        ItemDTO item = inventory.getItem(itemId);
-        currentSale.addItem(item);
-        return item;
-    }
+    public ItemDTO registerItem(String itemId)
+        throws ItemNotFoundException, InventoryDatabaseException {
+    ItemDTO item = inventory.getItem(itemId);
+    currentSale.addItem(item);
+    return item;
+}
 
     public Receipt endSale(double amountPaid) {
         return currentSale.finalizeSale(amountPaid);
