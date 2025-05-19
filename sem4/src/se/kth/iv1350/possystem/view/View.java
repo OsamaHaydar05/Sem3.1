@@ -44,7 +44,7 @@ public class View {
 }
         
         System.out.println("\nEnd sale:");
-        Receipt receipt = controller.endSale(100.0);
+        Receipt receipt = controller.endSale(200.0); // Det kunden betalar
         System.out.println(receipt);
         System.out.println("Change to give the customer: " + String.format("%.2f", receipt.getChange()) + " SEK");
     }
