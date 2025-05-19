@@ -19,6 +19,18 @@ public class Sale {
         }
     }
 
+    public void addItem(ItemDTO item, int quantity) {
+    SoldItem sold = soldItems.get(item.id);
+    if (sold == null) {
+        soldItems.put(item.id, new SoldItem(item, quantity));
+    } else {
+        for (int i = 0; i < quantity; i++) {
+            sold.increaseQuantity();
+        }
+    }
+}
+
+
     public Receipt finalizeSale(double amountPaid) {
         notifyObservers();
         return new Receipt(soldItems, amountPaid);
