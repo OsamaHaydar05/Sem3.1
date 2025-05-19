@@ -36,7 +36,7 @@ public class View {
         
         System.out.println("\nAdd 1 item with item id def456:");
         try {
-        ItemDTO item3 = controller.registerItem("def456");
+        ItemDTO item3 = controller.registerItem("def456", 3);
         printItemDetails(item3);
         printRunningTotal(controller);
 } catch (ItemNotFoundException | InventoryDatabaseException e) {
