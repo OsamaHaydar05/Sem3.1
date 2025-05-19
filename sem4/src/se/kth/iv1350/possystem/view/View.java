@@ -13,6 +13,8 @@ public class View {
         this.controller = controller;
         controller.startNewSale();
         controller.addRevenueObserver(new model.TotalRevenueView()); 
+        controller.addRevenueObserver(new model.TotalRevenueFileOutput());
+
 
         System.out.println("Add 1 item with item id abc123:");
         try {
