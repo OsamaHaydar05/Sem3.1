@@ -11,6 +11,7 @@ public class Receipt {
     private final double totalVAT;
     private final double change;
     private final LocalDateTime timeOfSale;
+    
 
     public Receipt(HashMap<String, SoldItem> soldItems, double amountPaid) {
         this.soldItems = soldItems;
