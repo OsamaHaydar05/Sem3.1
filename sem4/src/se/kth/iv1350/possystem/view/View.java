@@ -7,8 +7,12 @@ import integration.ItemNotFoundException;
 import integration.InventoryDatabaseException;
 
 public class View {
+    private Controller controller;
+    
     public View(Controller controller) {
+        this.controller = controller;
         controller.startNewSale();
+        controller.addRevenueObserver(new model.TotalRevenueView()); 
 
         System.out.println("Add 1 item with item id abc123:");
         try {
