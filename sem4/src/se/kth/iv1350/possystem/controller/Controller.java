@@ -26,6 +26,14 @@ public class Controller {
     return item;
 }
 
+    public ItemDTO registerItem(String itemId, int quantity)
+        throws ItemNotFoundException, InventoryDatabaseException {
+    ItemDTO item = inventory.getItem(itemId);
+    currentSale.addItem(item, quantity);
+    return item;
+}
+
+
     public Receipt endSale(double amountPaid) {
         return currentSale.finalizeSale(amountPaid);
     }
