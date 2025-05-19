@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Sale {
     private HashMap<String, SoldItem> soldItems = new HashMap<>();
+    private List<RevenueObserver> observers = new ArrayList<>();
 
     public void addItem(ItemDTO item) {
         SoldItem sold = soldItems.get(item.id);
@@ -19,6 +20,7 @@ public class Sale {
     }
 
     public Receipt finalizeSale(double amountPaid) {
+        notifyObservers();
         return new Receipt(soldItems, amountPaid);
     }
 
@@ -33,4 +35,15 @@ public class Sale {
             .mapToDouble(SoldItem::getTotalVAT)
             .sum();
     }
+
+public void addRevenueObserver(RevenueObserver observer) {
+    observers.add(observer);
+}
+
+private void notifyObservers() {
+    for (RevenueObserver observer : observers) {
+        observer.newRevenue(getRunningTotal());
+    }
+}
+
 } 
