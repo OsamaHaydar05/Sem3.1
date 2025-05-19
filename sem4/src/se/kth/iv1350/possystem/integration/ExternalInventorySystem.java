@@ -1,5 +1,7 @@
 package integration;
 
+import integration.ItemNotFoundException;
+import integration.InventoryDatabaseException;
 import java.util.HashMap;
 
 public class ExternalInventorySystem {
@@ -13,6 +15,13 @@ public class ExternalInventorySystem {
     }
 
     public ItemDTO getItem(String itemId) {
-        return items.get(itemId);
+    if ("dbError".equals(itemId)) {
+        throw new InventoryDatabaseException();
     }
+    ItemDTO item = items.get(itemId);
+    if (item == null) {
+        throw new ItemNotFoundException(itemId);
+    }
+    return item;
+}
 } 
