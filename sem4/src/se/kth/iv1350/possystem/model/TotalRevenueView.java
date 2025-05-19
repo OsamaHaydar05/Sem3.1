@@ -6,6 +6,6 @@ public class TotalRevenueView implements RevenueObserver {
     @Override
     public void newRevenue(double amount) {
         totalRevenue += amount;
-        System.out.println("🧾 Total revenue is now: " + String.format("%.2f", totalRevenue) + " SEK");
+        System.out.println("Total revenue is now: " + String.format("%.2f", totalRevenue) + " SEK");
     }
 }
