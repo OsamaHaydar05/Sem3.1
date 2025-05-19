@@ -26,4 +26,15 @@ public class ControllerTest {
 
         assertNotNull(sale, "Controller should create a Sale object when startSale is called.");
     }
+
+    @Test
+public void testItemNotFoundThrowsException() {
+    Controller controller = new Controller();
+    controller.startNewSale();
+
+    assertThrows(ItemNotFoundException.class, () -> {
+        controller.registerItem("nonexistentId");
+    });
+}
+
 }
