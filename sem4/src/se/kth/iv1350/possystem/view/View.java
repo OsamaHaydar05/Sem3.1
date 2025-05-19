@@ -3,26 +3,40 @@ package view;
 import controller.Controller;
 import integration.ItemDTO;
 import model.Receipt;
+import integration.ItemNotFoundException;
+import integration.InventoryDatabaseException;
 
 public class View {
     public View(Controller controller) {
         controller.startNewSale();
 
         System.out.println("Add 1 item with item id abc123:");
+        try {
         ItemDTO item1 = controller.registerItem("abc123");
         printItemDetails(item1);
         printRunningTotal(controller);
-
+} catch (ItemNotFoundException | InventoryDatabaseException e) {
+    System.out.println("ERROR: " + e.getMessage());
+}
+        
         System.out.println("\nAdd 1 item with item id abc123:");
+        try {
         ItemDTO item2 = controller.registerItem("abc123");
         printItemDetails(item2);
         printRunningTotal(controller);
-
+} catch (ItemNotFoundException | InventoryDatabaseException e) {
+    System.out.println("ERROR: " + e.getMessage());
+}
+        
         System.out.println("\nAdd 1 item with item id def456:");
+        try {
         ItemDTO item3 = controller.registerItem("def456");
         printItemDetails(item3);
         printRunningTotal(controller);
-
+} catch (ItemNotFoundException | InventoryDatabaseException e) {
+    System.out.println("ERROR: " + e.getMessage());
+}
+        
         System.out.println("\nEnd sale:");
         Receipt receipt = controller.endSale(100.0);
         System.out.println(receipt);
