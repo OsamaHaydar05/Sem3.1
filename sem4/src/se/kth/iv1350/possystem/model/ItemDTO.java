@@ -1,5 +1,6 @@
 package integration;
 
+
 public class ItemDTO {
     public final String id;
     public final String name;
