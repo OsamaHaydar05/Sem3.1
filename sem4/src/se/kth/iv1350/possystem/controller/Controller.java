@@ -42,5 +42,11 @@ public class Controller {
     return this.currentSale;
 }
 
+    public void addRevenueObserver(RevenueObserver observer) {
+    if (currentSale != null) {
+        currentSale.addRevenueObserver(observer);
+    }
+}
+
 
 } 
