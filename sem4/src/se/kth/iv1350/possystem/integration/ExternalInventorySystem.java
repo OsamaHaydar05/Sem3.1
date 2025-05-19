@@ -15,7 +15,7 @@ public class ExternalInventorySystem {
     }
 
     public ItemDTO getItem(String itemId) {
-    if ("dbError".equals(itemId)) {
+    if ("db_error".equals(itemId)) {
         throw new InventoryDatabaseException();
     }
     ItemDTO item = items.get(itemId);
