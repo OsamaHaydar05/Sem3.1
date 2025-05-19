@@ -2,6 +2,9 @@ package model;
 
 import integration.ItemDTO;
 import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+
 
 public class Sale {
     private HashMap<String, SoldItem> soldItems = new HashMap<>();
