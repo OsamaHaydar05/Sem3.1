@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Collection;
 
+
 public class Sale {
     private HashMap<String, SoldItem> soldItems = new HashMap<>();
 
