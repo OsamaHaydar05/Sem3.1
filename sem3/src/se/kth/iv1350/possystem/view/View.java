@@ -5,6 +5,7 @@ import integration.ItemDTO;
 import model.Receipt;
 import model.SoldItem;
 
+
 public class View {
     private Controller controller;
 
