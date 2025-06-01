@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashMap;
 
+
 public class Receipt {
     private final HashMap<String, SoldItem> soldItems;
     private final double amountPaid;
