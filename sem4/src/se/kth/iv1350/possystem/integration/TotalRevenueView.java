@@ -1,5 +1,6 @@
 package integration;
 
+
 public class TotalRevenueView implements RevenueObserver {
     private double totalRevenue = 0;
 
