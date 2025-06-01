@@ -2,6 +2,7 @@ package model;
 
 import integration.ItemDTO;
 
+
 public class SoldItem {
     private final ItemDTO item;
     private int quantity;
